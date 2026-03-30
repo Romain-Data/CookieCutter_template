@@ -4,5 +4,6 @@
     "author_name": "Your Name",
     "description": "A short description of the project.",
     "python_version": "3.12",
-    "use_docker": "y"
+    "use_docker": "y",
+    "use_github_actions": "y"
 }

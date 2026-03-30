@@ -1,4 +1,5 @@
 import os
+import shutil
 import subprocess
 
 def run_command(command):
@@ -15,6 +16,10 @@ def main():
         for f in ["Dockerfile", "Makefile"]:
             if os.path.exists(f):
                 os.remove(f)
+    
+    if "{{ cookiecutter.use_github_actions }}".lower() != 'y':
+        if os.path.exists(".github"):
+            shutil.rmtree(".github")
 
     # 2. Initialisation Git
     if run_command("git init"):
