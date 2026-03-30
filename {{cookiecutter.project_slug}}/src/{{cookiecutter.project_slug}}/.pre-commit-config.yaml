@@ -1,0 +1,17 @@
+repos:
+  # 1. Nettoyage de base (espaces, fin de fichiers)
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: trailing-whitespace      # Supprime les espaces inutiles en fin de ligne
+      - id: end-of-file-fixer        # Assure qu'une ligne vide termine chaque fichier
+      - id: check-yaml               # Vérifie la syntaxe des fichiers .yaml
+      - id: check-added-large-files  # Empêche de commit par erreur de gros fichiers (>500ko)
+
+  # 2. Qualité Python avec Ruff (Linting + Formatage)
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.3.0
+    hooks:
+      - id: ruff                     # Analyse le code et corrige les erreurs de style
+        args: [ --fix ]              # Auto-correction quand c'est possible
+      - id: ruff-format              # Remplace Black pour le formatage automatique

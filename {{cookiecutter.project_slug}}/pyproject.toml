@@ -1,0 +1,29 @@
+[project]
+name = "{{cookiecutter.project_slug}}"
+version = "0.1.0"
+description = "{{cookiecutter.project_name}}"
+authors = [{name = "{{cookiecutter.author_name}}"}]
+requires-python = ">={{cookiecutter.python_version}}"
+dependencies = [
+    "ruff>=0.3.0",
+]
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=8.0.0",
+    "pre-commit>=3.6.0",
+]
+
+[tool.uv.scripts]
+start = "python src/{{cookiecutter.project_slug}}/main.py"
+test = "pytest"
+lint = "ruff check . --fix"
+format = "ruff format ."
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
