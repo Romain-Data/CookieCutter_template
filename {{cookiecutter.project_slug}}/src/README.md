@@ -37,5 +37,3 @@ docker run {{cookiecutter.project_slug}}
 ```
 {%- endif %}
 
----
-Généré avec le template Cookiecutter Python 3.13 + UV.
